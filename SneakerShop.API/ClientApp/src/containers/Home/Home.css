@@ -1,0 +1,39 @@
+.home{
+    min-height: 100vh;
+    padding: 100px 10%;
+}
+
+.home .sneakers-img{
+    width: 75%;
+    align-self: center;
+}
+
+.home .image-wrapper{
+
+}
+
+ .home .welcome-wrapper{
+     padding-top: 250px;
+     padding-bottom: 100px;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+ }
+
+ .home .welcome-title{
+     color: white;
+     font-size: 48px;
+     padding-bottom: 20px;
+ }
+
+ .home .welcome-subtitle{
+     color: white;
+     font-size: 20px;
+     padding-bottom: 20px;
+ }
+
+ .home .button-wrapper{
+     display: grid;
+     grid-template-columns: 150px 150px 5fr;
+     column-gap: 15px;
+     padding-bottom: 20px;
+ }

@@ -1,0 +1,38 @@
+.nav{
+    width: 100vw;
+    display: grid;
+    padding: 25px 10%;
+    grid-template-columns: 300px 10fr 1fr 1fr 1fr;
+    position: absolute;
+}
+
+.nav .logo-img{
+    display: block;
+    width: 80%;
+    align-self: center;
+}
+
+.nav .logo-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.nav .logo-text{
+    align-self: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+}
+
+.auth-link{
+    color: white;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
+.input-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+}

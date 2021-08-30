@@ -1,0 +1,15 @@
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\bin\Debug\net5.0\SneakerShop.DA.deps.json
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\bin\Debug\net5.0\SneakerShop.DA.runtimeconfig.json
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\bin\Debug\net5.0\SneakerShop.DA.runtimeconfig.dev.json
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\bin\Debug\net5.0\SneakerShop.DA.dll
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\bin\Debug\net5.0\ref\SneakerShop.DA.dll
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\bin\Debug\net5.0\SneakerShop.DA.pdb
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.csproj.AssemblyReference.cache
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.AssemblyInfoInputs.cache
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.AssemblyInfo.cs
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.dll
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\ref\SneakerShop.DA.dll
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.pdb
+C:\Users\Andrew\RiderProjects\SneakerShop\SneakerShop.DA\obj\Debug\net5.0\SneakerShop.DA.genruntimeconfig.cache
