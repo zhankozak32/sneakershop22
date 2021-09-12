@@ -12,6 +12,7 @@ using SneakerShop.DA;
 using SneakerShop.DA.Entities;
 using SneakerShop.Domain.Interfaces;
 using SneakerShop.DTO.Models;
+using SneakerShop.DTO.Pagination;
 
 namespace SneakerShop.Domain.Services
 {
@@ -19,35 +20,53 @@ namespace SneakerShop.Domain.Services
     {
         private readonly IMapper _mapper;
         private readonly EFContext _context;
-
-        public ProductService(IMapper mapper, EFContext context)
+        private readonly ISizeService _sizeService;
+        
+        public ProductService(IMapper mapper, EFContext context, ISizeService sizeService)
         {
             _mapper = mapper;
             _context = context;
+            _sizeService = sizeService;
         }
 
         public async Task PostProductAsync(ProductRequestDto model)
         {
             var entity = _mapper.Map<ProductRequestDto, Product>(model);
+            
             entity.ImagePath = await SaveImage(model.Base64);
             await _context.Products.AddAsync(entity);
             await _context.SaveChangesAsync();
+            await _sizeService.AddProductSizeAsync(entity.Id, 1);
+            await _sizeService.AddProductSizeAsync(entity.Id, 2);
+            await _sizeService.AddProductSizeAsync(entity.Id, 3);
+            await _sizeService.AddProductSizeAsync(entity.Id, 4);
+            await _sizeService.AddProductSizeAsync(entity.Id, 5);
+            await _sizeService.AddProductSizeAsync(entity.Id, 6);
         }
-
-        public async Task<List<ProductResponseDto>> GetProductsByBrandNameAsync(string brandName)
+        
+        public async Task<PaginatedList<ProductResponseDto>> GetPaginatedProductsAsync(int pageNumber, int pageSize)
         {
             var products = await _context.Products
-                .Include(t => t.Brand)
-                .Where(t => t.Brand.Name == brandName)
+                .Include(t => t.Sizes)
+                .OrderBy(t => t.Id)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
+            
+            var count = await _context.Products.CountAsync();
 
-            return _mapper.Map<List<Product>, List<ProductResponseDto>>(products);
+            var result = new PaginatedList<ProductResponseDto>()
+            {
+                Data = _mapper.Map<List<Product>, List<ProductResponseDto>>(products),
+                PageViewModel = new PageViewModel(count, pageNumber, pageSize)
+            };
+            return result;
         }
 
         public async Task<List<ProductResponseDto>> GetProductsAsync()
         {
             var products = await _context.Products
-                .Include(t => t.Brand)
+                .Include(t => t.Sizes)
                 .ToListAsync();
             return _mapper.Map<List<Product>, List<ProductResponseDto>>(products);
         }

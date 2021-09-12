@@ -1,8 +1,10 @@
 using System.IO;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
@@ -34,7 +36,9 @@ namespace SneakerShop.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddAutoMapper(typeof(MapperProfile));
             services.AddSwaggerGen(c =>
             {
@@ -50,6 +54,12 @@ namespace SneakerShop.API
                 options.UseSqlServer(Configuration["ConnectionString"], 
                     b => b.MigrationsAssembly("SneakerShop.API"))
             );
+            
+            services
+                              .AddIdentity<User, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                              .AddEntityFrameworkStores<EFContext>()
+                              .AddDefaultTokenProviders();
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -70,13 +80,16 @@ namespace SneakerShop.API
                 };
             });
 
-            services.AddIdentity<User, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<EFContext>();
+            
+            
+            services.Configure<CookieAuthenticationOptions>(o =>
+            {
+                o.LoginPath = PathString.Empty;
+            });
             
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
 
             services.AddScoped<IJwtService, JwtService>();
-            services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IOrderService, OrderService>();
@@ -119,6 +132,8 @@ namespace SneakerShop.API
             });
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

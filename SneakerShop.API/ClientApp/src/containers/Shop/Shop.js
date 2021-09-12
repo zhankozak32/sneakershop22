@@ -1,75 +1,53 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import './Shop.css'
-import {Card, Select} from "antd";
 import {useDispatch, useSelector} from "react-redux";
-import {getBrands, getProductByBrandName, getProducts} from "../../actions/productActions";
-
-const { Meta } = Card;
+import {getPagedProducts} from "../../actions/productActions";
+import Product from "../../components/Product/Product";
+import {createPages} from "../../utils/pageCreator";
+import {setCurrentPage} from "../../redux/reducers/productReducer";
 
 const Shop = () => {
 
     const dispatch = useDispatch()
     const products = useSelector(state => state.product.products)
-    const brands = useSelector(state => state.brand.brands)
-    const [currentBrand, setCurrentBrand] = useState('')
+    const currentPage = useSelector(state => state.product.currentPage)
+    const pagesCount = useSelector(state => state.product.pagesCount)
+    const pages = []
+    createPages(pages, pagesCount, currentPage)
 
     useEffect(() => {
-        dispatch(getProducts())
-        dispatch(getBrands())
-    }, [])
+        dispatch(getPagedProducts(currentPage))
+    }, [currentPage])
 
-    useEffect(() => {
-        dispatch(getProductByBrandName(currentBrand))
-        if(currentBrand == ''){
-            dispatch(getProducts())
-        }
-    }, [currentBrand])
-
-    const handleSelectChange = (value) => {
-        setCurrentBrand(value)
+    const handleSortChange = value => {
+        console.log(value)
     }
 
-    const handleSortChange = (value) => {
-        console.log(value)
+    const generateKey = () => {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
     }
 
     return(
         <div className="shop">
             <div className="all-wrapper">
                 <div className="filters-wrapper">
-                    <div className="brand-filter">
-                        <h5>Brands:</h5>
-                        <Select defaultValue="" style={{ width: 120 }} onChange={handleSelectChange}>
-                            <Select.Option key="xzcxzc214125sdw" value={''}>All</Select.Option>
-                            {
-                                brands.map((brand) => (
-                                    <Select.Option key={brand.id} value={brand.name}>{brand.name}</Select.Option>
-                                ))
-                            }
-                        </Select>
-                    </div>
-                    <div className="sort-filter">
-                        <h5>Sort by:</h5>
-                        <Select defaultValue="" style={{ width: 120 }} onChange={handleSortChange}>
-                            <Select.Option value="price_asc">Price ascending</Select.Option>
-                            <Select.Option value="price_desc">Price descending</Select.Option>
-                        </Select>
-                    </div>
 
                 </div>
                 <div className="products-wrapper">
                     {
                         products.map((product) => (
-                            <Card
-                                key={product.id}
-                                hoverable
-                                cover={<img alt="" src={`https://localhost:5001/wwwroot/${product.imagePath}`} />}
-                            >
-                                <Meta title={product.name} description={product.description} />
-                                <h2 className="product-price">{product.price} $</h2>
-                            </Card>
+                            <Product key={generateKey} product={product}/>
                         ))
                     }
+                </div>
+                <div className="pages">
+                    {pages.map((page, index) => <span
+                        key={index}
+                        className={currentPage === page ? "page current-page" : "page"}
+                        onClick={() => dispatch(setCurrentPage(page))}>{page}</span>)}
                 </div>
             </div>
         </div>

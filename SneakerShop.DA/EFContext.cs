@@ -8,7 +8,6 @@ namespace SneakerShop.DA
     {
         public EFContext(DbContextOptions<EFContext> options) : base(options) { }
         
-        public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Order> Orders { get; set; }

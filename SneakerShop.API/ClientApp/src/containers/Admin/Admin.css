@@ -1,0 +1,24 @@
+.admin{
+    padding-top: 150px;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.admin .admin-buttons-wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.admin .admin-btn{
+
+}
+
+.admin-input-wrapper{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+}

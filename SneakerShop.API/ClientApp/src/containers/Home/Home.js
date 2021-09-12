@@ -2,8 +2,12 @@ import React from "react"
 import './Home.css'
 import airforce from './../../assets/airforce.png'
 import {Button} from "antd";
+import {useHistory} from "react-router-dom";
 
 const Home = () => {
+
+    const history = useHistory()
+
     return(
         <div className="home">
             <div className="welcome-wrapper">
@@ -18,7 +22,9 @@ const Home = () => {
                         Nike Jordans and many more.
                     </p>
                     <div className="button-wrapper">
-                        <Button type="primary">Browse</Button>
+                        <Button onClick={() => {
+                            history.push('/shop')
+                        }} type="primary">Browse</Button>
                     </div>
                 </div>
             </div>

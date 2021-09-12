@@ -30,12 +30,12 @@ namespace SneakerShop.API.Controllers
             var result = await _productService.GetProductsAsync();
             return Ok(result);
         }
-
-        [HttpGet("brand")]
-        public async Task<IActionResult> GetProductsByBrandNameAsync([FromQuery] string brandName)
+        
+        [HttpGet("paginated")]
+        public async Task<IActionResult> GetPaginatedProductsAsync([FromQuery]int pageNumber, [FromQuery]int pageSize)
         {
-            var result = await _productService.GetProductsByBrandNameAsync(brandName);
+            var result = await _productService.GetPaginatedProductsAsync(pageNumber, pageSize);
             return Ok(result);
-        }
+        }        
     }
 }

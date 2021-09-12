@@ -12,7 +12,9 @@ namespace SneakerShop.DA.Entities
         public string Status { get; set; }
         public bool Success { get; set; }
         public string Address { get; set; }
+        public int ProductId { get; set; }
+        public int SelectedSize { get; set; }
         public virtual User User { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

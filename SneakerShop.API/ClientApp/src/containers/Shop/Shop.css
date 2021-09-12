@@ -26,10 +26,28 @@
     row-gap: 25px;
 }
 
-.shop .product-price{
-    margin-top: 8px;
-}
-
 .shop .brand-filter{
     display: block;
+}
+
+.pages{
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    column-gap: 10px;
+}
+
+.pages .page{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    background-color: blueviolet;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pages .current-page{
+    background-color: darkred;
 }

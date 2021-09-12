@@ -2,8 +2,18 @@
   "name": "sneakershop.api",
   "version": "0.1.0",
   "private": true,
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-react-jsx"
+    ]
+  },
   "dependencies": {
     "@ant-design/icons": "^4.6.4",
+    "@babel/preset-react": "^7.14.5",
     "antd": "^4.16.13",
     "axios": "^0.21.1",
     "bootstrap": "^4.1.3",
@@ -20,10 +30,12 @@
     "react-spinners": "^0.11.0",
     "reactstrap": "^8.4.1",
     "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "rimraf": "^2.6.2"
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
     "ajv": "^6.9.1",
     "cross-env": "^5.2.0",
     "eslint": "^6.8.0",

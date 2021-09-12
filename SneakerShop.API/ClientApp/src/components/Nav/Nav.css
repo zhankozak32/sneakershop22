@@ -15,6 +15,7 @@
 .nav .logo-wrapper{
     display: grid;
     grid-template-columns: 1fr 4fr;
+    cursor: pointer;
 }
 
 .nav .logo-text{
@@ -35,4 +36,31 @@
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 10px;
+}
+
+.cart-wrapper{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+.cart-item{
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
+    align-items: center;
+}
+
+.cart-item-img{
+    display: block;
+    width: 50%;
+}
+
+.cart-item-name, .cart-item-price{
+    align-self: center;
+}
+
+.user-orders-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
 }

@@ -1,0 +1,25 @@
+.shop .product-price{
+    margin-top: 8px;
+}
+
+.shop .product-size-wrapper{
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: repeat(5, 30px);
+    gap: 5px;
+}
+
+.shop .product-size{
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+    background-color: blueviolet;
+    border-radius: 5%;
+}
+
+.shop .selected-size{
+    background-color: green;
+}
