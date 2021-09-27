@@ -36,6 +36,7 @@ namespace SneakerShop.Domain.Services
                 Email = model.Email,
                 UserName = model.Email,
                 Gender = model.Gender,
+                Address = model.Address,
                 Country = model.Country,
                 City = model.City,
                 Balance = 0

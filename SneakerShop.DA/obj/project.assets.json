@@ -1265,19 +1265,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Andrew\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrew\\RiderProjects\\SneakerShop\\SneakerShop.DA\\SneakerShop.DA.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\sneakershop22\\SneakerShop.DA\\SneakerShop.DA.csproj",
       "projectName": "SneakerShop.DA",
-      "projectPath": "C:\\Users\\Andrew\\RiderProjects\\SneakerShop\\SneakerShop.DA\\SneakerShop.DA.csproj",
-      "packagesPath": "C:\\Users\\Andrew\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andrew\\RiderProjects\\SneakerShop\\SneakerShop.DA\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\RiderProjects\\sneakershop22\\SneakerShop.DA\\SneakerShop.DA.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\RiderProjects\\sneakershop22\\SneakerShop.DA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Andrew\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1346,7 +1346,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Admin\\.dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
